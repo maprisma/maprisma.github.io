@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Maprisma Launcher: Maprisma's frame and colours; a grid of apps, one being started. -->
+  <rect x="4" y="4" width="56" height="56" rx="14" fill="#1a2234"/>
+  <g fill="none" stroke="#4dd6c8" stroke-width="3">
+    <rect x="13" y="13" width="10" height="10" rx="3"/>
+    <rect x="27" y="13" width="10" height="10" rx="3"/>
+    <rect x="41" y="13" width="10" height="10" rx="3"/>
+    <rect x="13" y="27" width="10" height="10" rx="3"/>
+    <rect x="27" y="27" width="10" height="10" rx="3"/>
+    <rect x="41" y="27" width="10" height="10" rx="3"/>
+    <rect x="13" y="41" width="10" height="10" rx="3"/>
+    <rect x="27" y="41" width="10" height="10" rx="3"/>
+  </g>
+  <rect x="39.5" y="39.5" width="13" height="13" rx="3.5" fill="#86c79c"/>
+  <path d="M44 42.5 L50 46 L44 49.5 Z" fill="#1a2234"/>
+</svg>

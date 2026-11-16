@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 700" font-family="Inter, system-ui, -apple-system, sans-serif">
+  <rect width="1120" height="700" fill="#0d121d"/>
+  <rect x="44" y="36" width="1032" height="628" rx="14" fill="#131a29" stroke="#26334d" stroke-width="1.5"/>
+  <!-- Titlebar -->
+  <rect x="44" y="36" width="1032" height="48" rx="14" fill="#172033"/>
+  <text x="72" y="66" fill="#e6edf7" font-size="16" font-weight="600">Maprisma Settings</text>
+  <rect x="240" y="48" width="68" height="24" rx="6" fill="#4dd6c8" fill-opacity="0.16"/>
+  <text x="274" y="64" text-anchor="middle" fill="#4dd6c8" font-size="12" font-weight="600">Apps</text>
+  <text x="336" y="64" fill="#8b9bb4" font-size="12">Bar Icons</text>
+  <text x="418" y="64" fill="#8b9bb4" font-size="12">Ask AI Rules</text>
+  <text x="518" y="64" fill="#8b9bb4" font-size="12">Voice</text>
+  <text x="576" y="64" fill="#8b9bb4" font-size="12">Notifications</text>
+  <!-- Search bar -->
+  <rect x="72" y="106" width="976" height="40" rx="8" fill="#0e1421" stroke="#25324a"/>
+  <text x="94" y="131" fill="#6d7f9b" font-size="13">Filter 18 Maprisma apps — install, update, remove &amp; place bar icons…</text>
+  <!-- App rows -->
+  <g transform="translate(72, 168)">
+    <text x="0" y="14" fill="#7c8ea8" font-size="11" font-weight="600" letter-spacing="0.8">IN THE BAR · COSMIC &amp; KDE PLASMA</text>
+    <!-- Row 1 -->
+    <rect x="0" y="28" width="976" height="72" rx="10" fill="#182235" stroke="#2a3956"/>
+    <rect x="18" y="44" width="40" height="40" rx="10" fill="#1a2234" stroke="#4dd6c8" stroke-width="2"/>
+    <circle cx="33" cy="64" r="2.5" fill="#4dd6c8"/><circle cx="43" cy="64" r="2.5" fill="#4dd6c8"/>
+    <text x="74" y="59" fill="#eef4fc" font-size="15" font-weight="600">Maprisma &amp; Control</text>
+    <text x="74" y="80" fill="#8fa1bc" font-size="12.5">v0.13.0 installed · Bar applet active · Local LLM provider service ready</text>
+    <rect x="768" y="48" width="94" height="32" rx="7" fill="#86c79c" fill-opacity="0.18" stroke="#86c79c"/>
+    <text x="815" y="69" text-anchor="middle" fill="#86c79c" font-size="12" font-weight="600">Up to date</text>
+    <rect x="874" y="48" width="82" height="32" rx="7" fill="#223049"/>
+    <text x="915" y="69" text-anchor="middle" fill="#d3deee" font-size="12">In bar ✓</text>
+    <!-- Row 2 -->
+    <rect x="0" y="112" width="976" height="72" rx="10" fill="#182235" stroke="#4dd6c8" stroke-opacity="0.45"/>
+    <rect x="18" y="128" width="40" height="40" rx="10" fill="#1a2234" stroke="#4dd6c8" stroke-width="2"/>
+    <rect x="30" y="140" width="16" height="16" rx="3" fill="#86c79c"/>
+    <text x="74" y="143" fill="#eef4fc" font-size="15" font-weight="600">Maprisma Launcher</text>
+    <text x="74" y="164" fill="#8fa1bc" font-size="12.5">2 commits behind github.com/maprisma/launcher · Atomic bundle swap</text>
+    <rect x="768" y="132" width="94" height="32" rx="7" fill="#4dd6c8"/>
+    <text x="815" y="153" text-anchor="middle" fill="#0f1726" font-size="12" font-weight="700">Update (2)</text>
+    <rect x="874" y="132" width="82" height="32" rx="7" fill="#223049"/>
+    <text x="915" y="153" text-anchor="middle" fill="#d3deee" font-size="12">In bar ✓</text>
+    <!-- Row 3 -->
+    <rect x="0" y="196" width="976" height="72" rx="10" fill="#182235" stroke="#2a3956"/>
+    <rect x="18" y="212" width="40" height="40" rx="10" fill="#1a1b26" stroke="#bb9af7" stroke-width="2"/>
+    <circle cx="38" cy="232" r="9" fill="#bb9af7" fill-opacity="0.5"/>
+    <text x="74" y="227" fill="#eef4fc" font-size="15" font-weight="600">Maprisma Theme</text>
+    <text x="74" y="248" fill="#8fa1bc" font-size="12.5">Installed · Syncs COSMIC, KDE Plasma &amp; Maprisma Shell colors.toml</text>
+    <rect x="768" y="216" width="94" height="32" rx="7" fill="#86c79c" fill-opacity="0.18" stroke="#86c79c"/>
+    <text x="815" y="237" text-anchor="middle" fill="#86c79c" font-size="12" font-weight="600">Up to date</text>
+    <rect x="874" y="216" width="82" height="32" rx="7" fill="#223049"/>
+    <text x="915" y="237" text-anchor="middle" fill="#d3deee" font-size="12">In bar ✓</text>
+    <!-- Section 2 -->
+    <text x="0" y="302" fill="#7c8ea8" font-size="11" font-weight="600" letter-spacing="0.8">AVAILABLE FROM GITHUB · ONE-CLICK INSTALL</text>
+    <rect x="0" y="316" width="976" height="72" rx="10" fill="#151e30" stroke="#24324c"/>
+    <rect x="18" y="332" width="40" height="40" rx="10" fill="#1f2230" stroke="#7aa2ff" stroke-width="2"/>
+    <circle cx="38" cy="352" r="6" fill="#eef0ff"/>
+    <text x="74" y="347" fill="#eef4fc" font-size="15" font-weight="600">Maprisma Dictation</text>
+    <text x="74" y="368" fill="#8fa1bc" font-size="12.5">Local whisper.cpp Vulkan voice service + top-centre aura overlay</text>
+    <rect x="850" y="336" width="106" height="32" rx="7" fill="#263654" stroke="#4dd6c8"/>
+    <text x="903" y="357" text-anchor="middle" fill="#4dd6c8" font-size="12" font-weight="600">Install</text>
+    <!-- Row 5 -->
+    <rect x="0" y="400" width="976" height="72" rx="10" fill="#151e30" stroke="#24324c"/>
+    <rect x="18" y="416" width="40" height="40" rx="10" fill="#1a2234" stroke="#4dd6c8" stroke-width="2"/>
+    <rect x="28" y="432" width="20" height="12" rx="2" fill="none" stroke="#4dd6c8" stroke-width="2"/>
+    <text x="74" y="431" fill="#eef4fc" font-size="15" font-weight="600">Maprisma Video Translator</text>
+    <text x="74" y="452" fill="#8fa1bc" font-size="12.5">Live Whisper speech recognition + local LLM translated captions overlay</text>
+    <rect x="850" y="420" width="106" height="32" rx="7" fill="#263654" stroke="#4dd6c8"/>
+    <text x="903" y="441" text-anchor="middle" fill="#4dd6c8" font-size="12" font-weight="600">Install</text>
+  </g>
+</svg>

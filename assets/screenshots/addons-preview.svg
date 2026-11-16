@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 700" font-family="Inter, system-ui, -apple-system, sans-serif">
+  <rect width="1120" height="700" fill="#0d121d"/>
+  <rect x="88" y="64" width="944" height="572" rx="16" fill="#141c2c" stroke="#2b3d5e" stroke-width="1.5"/>
+  <text x="128" y="114" fill="#eef4fc" font-size="20" font-weight="700">Maprisma Signed Add-ons Catalog</text>
+  <text x="128" y="142" fill="#86c79c" font-size="13" font-weight="600">✓ SSH-signed catalog.json &amp; catalog.sig · Data-only adapters (zero arbitrary code execution)</text>
+  <g transform="translate(128, 178)">
+    <rect x="0" y="0" width="276" height="180" rx="12" fill="#192438" stroke="#31466b"/>
+    <text x="22" y="36" fill="#4dd6c8" font-size="15" font-weight="700">Coding Agent Adapters</text>
+    <text x="22" y="66" fill="#dce6f5" font-size="13">• Claude Code &amp; Codex</text>
+    <text x="22" y="90" fill="#dce6f5" font-size="13">• GitHub Copilot &amp; Cursor CLI</text>
+    <text x="22" y="114" fill="#dce6f5" font-size="13">• Gemini, Antigravity, OpenCode</text>
+    <text x="22" y="138" fill="#dce6f5" font-size="13">• Hermes &amp; Pi</text>
+    <rect x="294" y="0" width="276" height="180" rx="12" fill="#192438" stroke="#31466b"/>
+    <text x="316" y="36" fill="#86c79c" font-size="15" font-weight="700">Local LLM Adapters</text>
+    <text x="316" y="66" fill="#dce6f5" font-size="13">• llama.cpp (Vulkan / CUDA)</text>
+    <text x="316" y="90" fill="#dce6f5" font-size="13">• Ollama &amp; LM Studio</text>
+    <text x="316" y="114" fill="#dce6f5" font-size="13">• vLLM &amp; KoboldCpp</text>
+    <text x="316" y="138" fill="#dce6f5" font-size="13">• Jan</text>
+    <rect x="588" y="0" width="276" height="180" rx="12" fill="#192438" stroke="#31466b"/>
+    <text x="610" y="36" fill="#bb9af7" font-size="15" font-weight="700">Online Providers</text>
+    <text x="610" y="66" fill="#dce6f5" font-size="13">• Anthropic &amp; OpenAI</text>
+    <text x="610" y="90" fill="#dce6f5" font-size="13">• Google Gemini &amp; DeepSeek</text>
+    <text x="610" y="114" fill="#dce6f5" font-size="13">• OpenRouter &amp; Mistral</text>
+    <text x="610" y="138" fill="#dce6f5" font-size="13">• Verified author signature</text>
+  </g>
+  <rect x="128" y="392" width="864" height="196" rx="12" fill="#101624" stroke="#24334f"/>
+  <text x="156" y="428" fill="#4dd6c8" font-family="monospace" font-size="13">$ ssh-keygen -Y verify -f author_key.pub -I maprisma -n maprisma-addon -s catalog.sig &lt; catalog.json</text>
+  <text x="156" y="458" fill="#86c79c" font-family="monospace" font-size="13">Good "maprisma-addon" signature for maprisma with ED25519 key SHA256:…</text>
+  <text x="156" y="502" fill="#9fb0c9" font-size="13.5">Maprisma checks every downloaded adapter and catalog against Uwe Bruckhaus’s built-in public key.</text>
+  <text x="156" y="528" fill="#9fb0c9" font-size="13.5">Add-ons are pure declarative data — Maprisma never loads or executes external add-on code.</text>
+</svg>

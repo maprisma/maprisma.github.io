@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 700" font-family="Inter, system-ui, -apple-system, sans-serif">
+  <rect width="1120" height="700" fill="#0d121d"/>
+  <rect x="330" y="38" width="460" height="624" rx="16" fill="#151e30" stroke="#2e4163" stroke-width="1.5"/>
+  <text x="360" y="78" fill="#eef4fc" font-size="17" font-weight="700">Maprisma Notifier</text>
+  <rect x="546" y="58" width="70" height="24" rx="12" fill="#4dd6c8" fill-opacity="0.18"/>
+  <text x="581" y="74" text-anchor="middle" fill="#4dd6c8" font-size="12" font-weight="600">3 unread</text>
+  <text x="720" y="75" fill="#8fa1bc" font-size="12">Clear all</text>
+  <!-- DND Card -->
+  <rect x="356" y="102" width="408" height="64" rx="10" fill="#1b263d" stroke="#2d3f61"/>
+  <text x="376" y="130" fill="#eef4fc" font-size="14" font-weight="600">Do Not Disturb</text>
+  <text x="376" y="150" fill="#8fa1bc" font-size="12">Scheduled 22:00 – 07:30 ·COSMIC, KDE &amp; Hyprland</text>
+  <rect x="702" y="122" width="44" height="24" rx="12" fill="#2b3b59"/>
+  <circle cx="714" cy="134" r="9" fill="#9fb0c9"/>
+  <!-- Group 1 -->
+  <text x="360" y="198" fill="#7c8ea8" font-size="11" font-weight="600" letter-spacing="0.8">MAPRISMA MAIL · 2 NEW</text>
+  <rect x="356" y="210" width="408" height="84" rx="10" fill="#1a253b" stroke="#354b73"/>
+  <circle cx="376" cy="236" r="5" fill="#4dd6c8"/>
+  <text x="392" y="241" fill="#eef4fc" font-size="14" font-weight="600">Margaret Hamilton — Re: Lunch on Friday?</text>
+  <text x="392" y="264" fill="#9fb0c9" font-size="12.5">Friday works for me. Shall we meet at 12:30?</text>
+  <text x="392" y="283" fill="#6d7f9b" font-size="11">2 min ago · Click to mark read</text>
+  <!-- Group 2 -->
+  <text x="360" y="326" fill="#7c8ea8" font-size="11" font-weight="600" letter-spacing="0.8">MAPRISMA · SYSTEM ALERT</text>
+  <rect x="356" y="338" width="408" height="84" rx="10" fill="#1a253b" stroke="#f7768e" stroke-opacity="0.5"/>
+  <circle cx="376" cy="364" r="5" fill="#f7768e"/>
+  <text x="392" y="369" fill="#eef4fc" font-size="14" font-weight="600">Claude Code approaching plan token limit</text>
+  <text x="392" y="392" fill="#9fb0c9" font-size="12.5">14% remaining in current window · Switch to local Qwen?</text>
+  <text x="392" y="411" fill="#6d7f9b" font-size="11">11 min ago · Critical</text>
+  <!-- Group 3 -->
+  <text x="360" y="454" fill="#7c8ea8" font-size="11" font-weight="600" letter-spacing="0.8">WLAN MONITOR</text>
+  <rect x="356" y="466" width="408" height="76" rx="10" fill="#172033" stroke="#263652"/>
+  <text x="376" y="495" fill="#dce6f5" font-size="14" font-weight="600">Connected to FRITZ!Box 7690 ML (6 GHz)</text>
+  <text x="376" y="518" fill="#8fa1bc" font-size="12.5">Signal Excellent · 2402 Mbit/s · 12 devices online</text>
+</svg>

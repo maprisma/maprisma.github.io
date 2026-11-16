@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect x="4" y="4" width="56" height="56" rx="14" fill="#1a2234"/>
+  <g transform="translate(14, 14) scale(2.25)" fill="#4dd6c8">
+  <path fill="#4dd6c8" class="ColorScheme-Text" d="M15.5 8A7.5 7.5 0 1 1 8 .5V2a6 6 0 1 0 6 6z"/>
+  <path fill="#4dd6c8" class="ColorScheme-Text" d="M12.75 8A4.75 4.75 0 1 1 8 3.25v1.5A3.25 3.25 0 1 0 11.25 8z"/>
+  <circle fill="#4dd6c8" class="ColorScheme-Text" cx="8" cy="8" r="1.25"/>
+  <path fill="#4dd6c8" class="ColorScheme-Text" d="M7.4 8.1 13 2.5l.6.6L8 8.7z"/>
+</g>
+</svg>

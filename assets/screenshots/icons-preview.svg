@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 700" font-family="Inter, system-ui, -apple-system, sans-serif">
+  <rect width="1120" height="700" fill="#0d121d"/>
+  <text x="560" y="150" text-anchor="middle" fill="#eef4fc" font-size="24" font-weight="700">Maprisma Icons · KDE Plasma 6 Panel Widget</text>
+  <text x="560" y="184" text-anchor="middle" fill="#8fa1bc" font-size="15">Click, hold and drag any Maprisma tray icon into the exact order you want — Plasma keeps it.</text>
+  <!-- Simulated KDE Panel -->
+  <rect x="96" y="256" width="928" height="68" rx="16" fill="#161f31" stroke="#364b70" stroke-width="2"/>
+  <text x="132" y="296" fill="#8fa1bc" font-size="13" font-weight="600">KDE Panel</text>
+  <!-- Row of Maprisma Icons -->
+  <rect x="242" y="268" width="504" height="44" rx="10" fill="#1d2942" stroke="#4dd6c8" stroke-dasharray="4 3"/>
+  <g transform="translate(262, 276)">
+    <rect x="0" y="0" width="28" height="28" rx="7" fill="#1a2234" stroke="#86c79c" stroke-width="2"/>
+    <rect x="44" y="0" width="28" height="28" rx="7" fill="#1a2234" stroke="#4dd6c8" stroke-width="2"/>
+    <rect x="88" y="-6" width="32" height="32" rx="8" fill="#263654" stroke="#4dd6c8" stroke-width="2.5"/>
+    <text x="104" y="-14" text-anchor="middle" fill="#4dd6c8" font-size="11" font-weight="700">⇄ Drag to reorder</text>
+    <rect x="136" y="0" width="28" height="28" rx="7" fill="#1a1b26" stroke="#bb9af7" stroke-width="2"/>
+    <rect x="180" y="0" width="28" height="28" rx="7" fill="#1a2234" stroke="#4dd6c8" stroke-width="2"/>
+    <rect x="224" y="0" width="28" height="28" rx="7" fill="#1a2234" stroke="#ff9e64" stroke-width="2"/>
+    <rect x="268" y="0" width="28" height="28" rx="7" fill="#1a2234" stroke="#4dd6c8" stroke-width="2"/>
+    <rect x="312" y="0" width="28" height="28" rx="7" fill="#1a2234" stroke="#86c79c" stroke-width="2"/>
+    <rect x="356" y="0" width="28" height="28" rx="7" fill="#1a2234" stroke="#7aa2f7" stroke-width="2"/>
+    <circle cx="381" cy="3" r="4" fill="#f7768e"/>
+    <rect x="400" y="0" width="28" height="28" rx="7" fill="#1a2234" stroke="#4dd6c8" stroke-width="2"/>
+    <rect x="444" y="0" width="28" height="28" rx="7" fill="#1a2234" stroke="#4dd6c8" stroke-width="2"/>
+  </g>
+  <text x="920" y="296" fill="#dce6f5" font-size="14" font-weight="600">21:30</text>
+  <!-- Feature cards -->
+  <g transform="translate(156, 384)">
+    <rect x="0" y="0" width="256" height="136" rx="12" fill="#151e30" stroke="#263652"/>
+    <text x="22" y="36" fill="#4dd6c8" font-size="14" font-weight="600">Persistent Order</text>
+    <text x="22" y="64" fill="#9fb0c9" font-size="12.5">Plasma’s default tray sorts</text>
+    <text x="22" y="84" fill="#9fb0c9" font-size="12.5">icons automatically; Maprisma</text>
+    <text x="22" y="104" fill="#9fb0c9" font-size="12.5">Icons keeps your custom order.</text>
+    <rect x="276" y="0" width="256" height="136" rx="12" fill="#151e30" stroke="#263652"/>
+    <text x="298" y="36" fill="#86c79c" font-size="14" font-weight="600">Full Tray Actions</text>
+    <text x="298" y="64" fill="#9fb0c9" font-size="12.5">Left, middle and right click</text>
+    <text x="298" y="84" fill="#9fb0c9" font-size="12.5">open each app’s popup and</text>
+    <text x="298" y="104" fill="#9fb0c9" font-size="12.5">native context menu.</text>
+    <rect x="552" y="0" width="256" height="136" rx="12" fill="#151e30" stroke="#263652"/>
+    <text x="574" y="36" fill="#bb9af7" font-size="14" font-weight="600">Theme-Matched Panel</text>
+    <text x="574" y="64" fill="#9fb0c9" font-size="12.5">Includes maprisma-panel-color</text>
+    <text x="574" y="84" fill="#9fb0c9" font-size="12.5">for seamless Plasma desktop</text>
+    <text x="574" y="104" fill="#9fb0c9" font-size="12.5">panel colors.</text>
+  </g>
+</svg>

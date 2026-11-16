@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Maprisma Mail: Maprisma's frame and colours; an envelope with the prism's fold. -->
+  <rect x="4" y="4" width="56" height="56" rx="14" fill="#1a2234"/>
+  <g fill="none" stroke="#4dd6c8" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+    <rect x="13" y="18" width="38" height="28" rx="4"/>
+    <polyline points="14,20 32,34 50,20"/>
+  </g>
+  <path d="M32 34 L50 46 L14 46 Z" fill="#4dd6c8" opacity=".25"/>
+</svg>

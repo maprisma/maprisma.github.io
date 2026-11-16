@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 700" font-family="Inter, system-ui, -apple-system, sans-serif">
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/><stop offset="0.55" stop-color="#172542"/><stop offset="1" stop-color="#132e35"/>
+    </linearGradient>
+  </defs>
+  <rect width="1120" height="700" fill="url(#wall)"/>
+  <!-- Quickshell Top Bar -->
+  <rect x="16" y="14" width="1088" height="38" rx="10" fill="#121927" fill-opacity="0.92" stroke="#2c3e5e"/>
+  <rect x="28" y="21" width="26" height="24" rx="6" fill="#4dd6c8"/>
+  <text x="41" y="37" text-anchor="middle" fill="#0f1726" font-size="12" font-weight="700">1</text>
+  <text x="72" y="37" fill="#9fb0c9" font-size="12" font-weight="600">2    3    4    5</text>
+  <text x="560" y="37" text-anchor="middle" fill="#eef4fc" font-size="13" font-weight="600">Saturday · 14 Nov · 21:30</text>
+  <!-- Tray icons -->
+  <circle cx="932" cy="33" r="6" fill="#4dd6c8"/>
+  <circle cx="958" cy="33" r="6" fill="#86c79c"/>
+  <circle cx="984" cy="33" r="6" fill="#7aa2f7"/>
+  <circle cx="1010" cy="33" r="6" fill="#bb9af7"/>
+  <text x="1036" y="37" fill="#dce6f5" font-size="12" font-weight="600">98%</text>
+  <!-- Notification popup top-right -->
+  <rect x="748" y="68" width="340" height="94" rx="12" fill="#151e30" fill-opacity="0.95" stroke="#4dd6c8" stroke-width="1.5"/>
+  <text x="770" y="96" fill="#4dd6c8" font-size="12" font-weight="700">Maprisma Theme · Applied</text>
+  <text x="770" y="118" fill="#eef4fc" font-size="14" font-weight="600">Switched Hyprland &amp; Quickshell to Prismatic Dark</text>
+  <text x="770" y="140" fill="#8fa1bc" font-size="12">Bar, wallpaper, lock screen &amp; notifications updated</text>
+  <!-- Tiled Windows -->
+  <rect x="28" y="68" width="698" height="516" rx="12" fill="#111826" fill-opacity="0.88" stroke="#4dd6c8" stroke-opacity="0.5"/>
+  <text x="54" y="104" fill="#4dd6c8" font-size="13" font-weight="600">qs -c maprisma-shell</text>
+  <text x="54" y="136" fill="#dce6f5" font-size="15" font-weight="600">Complete Hyprland Desktop Shell in One Quickshell Config</text>
+  <text x="54" y="168" fill="#9fb0c9" font-size="13.5">• Multi-monitor bar styled dynamically by Maprisma Theme (scheme.json)</text>
+  <text x="54" y="196" fill="#9fb0c9" font-size="13.5">• Built-in notification server with actions &amp; Do Not Disturb IPC</text>
+  <text x="54" y="224" fill="#9fb0c9" font-size="13.5">• PAM lock screen, idle management &amp; per-screen wallpaper</text>
+  <text x="54" y="252" fill="#9fb0c9" font-size="13.5">• Helper tools: maprisma-screenshot, maprisma-record, clipboard &amp; emoji</text>
+  <!-- OSD Volume/Brightness pill -->
+  <rect x="410" y="612" width="300" height="52" rx="26" fill="#151e30" stroke="#364b70" stroke-width="1.5"/>
+  <text x="440" y="643" fill="#eef4fc" font-size="13" font-weight="600">☀ Brightness</text>
+  <rect x="536" y="633" width="124" height="8" rx="4" fill="#25344f"/>
+  <rect x="536" y="633" width="92" height="8" rx="4" fill="#4dd6c8"/>
+  <text x="670" y="643" fill="#4dd6c8" font-size="12" font-weight="600">75%</text>
+</svg>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect x="4" y="4" width="56" height="56" rx="14" fill="#1a2234"/>
+  <g transform="translate(14, 14) scale(2.25)" fill="#4dd6c8"><!-- media-view-subtitles-symbolic of the Pop icon theme (System76, CC-BY-SA 4.0), the icon COSMIC showed before -->
+  <path class="ColorScheme-Text" fill="#4dd6c8" d="M2 2.035c-.554 0-1 .446-1 1v10c0 .554.446 1 1 1h12c.554 0 1-.446 1-1v-10c0-.554-.446-1-1-1zm1 8h10v2H3z"/>
+</g>
+</svg>

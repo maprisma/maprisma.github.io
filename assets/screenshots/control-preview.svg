@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 700" font-family="Inter, system-ui, -apple-system, sans-serif">
+  <rect width="1120" height="700" fill="#0d121d"/>
+  <!-- Top Bar -->
+  <rect x="0" y="0" width="1120" height="40" fill="#151d2d"/>
+  <rect x="534" y="6" width="52" height="28" rx="8" fill="#1e2b42" stroke="#86c79c"/>
+  <circle cx="554" cy="20" r="3" fill="#86c79c"/><circle cx="566" cy="20" r="3" fill="#86c79c"/>
+  <!-- Applet Popup -->
+  <rect x="370" y="58" width="380" height="560" rx="16" fill="#161f31" stroke="#314569" stroke-width="1.5"/>
+  <rect x="398" y="86" width="48" height="48" rx="12" fill="#1a2234" stroke="#86c79c" stroke-width="2.5"/>
+  <circle cx="415" cy="110" r="3.5" fill="#86c79c"/><circle cx="429" cy="110" r="3.5" fill="#86c79c"/>
+  <text x="462" y="106" fill="#eef4fc" font-size="17" font-weight="700">Maprisma Control</text>
+  <text x="462" y="127" fill="#86c79c" font-size="13" font-weight="600">● Maprisma is running (PID 4812)</text>
+  <rect x="398" y="156" width="324" height="44" rx="9" fill="#4dd6c8"/>
+  <text x="560" y="183" text-anchor="middle" fill="#0e1624" font-size="14" font-weight="700">Show Maprisma Window</text>
+  <rect x="398" y="212" width="324" height="42" rx="9" fill="#202d46"/>
+  <text x="560" y="238" text-anchor="middle" fill="#eef4fc" font-size="13.5" font-weight="600">Restart Maprisma</text>
+  <rect x="398" y="266" width="324" height="42" rx="9" fill="#202d46"/>
+  <text x="560" y="292" text-anchor="middle" fill="#f7768e" font-size="13.5" font-weight="600">Stop Maprisma</text>
+  <line x1="398" y1="328" x2="722" y2="328" stroke="#263552"/>
+  <text x="398" y="356" fill="#7c8ea8" font-size="11" font-weight="600" letter-spacing="0.8">DISCOVERY &amp; DESKTOP</text>
+  <text x="398" y="382" fill="#dce6f5" font-size="13">Executable: ~/.local/bin/maprisma</text>
+  <text x="398" y="406" fill="#8fa1bc" font-size="12.5">Works with archive installs, /opt, packages &amp; AppImages</text>
+  <text x="398" y="438" fill="#dce6f5" font-size="13">✓ F12 saves popup screenshot + note</text>
+  <text x="398" y="466" fill="#dce6f5" font-size="13">Language: System (8 languages bundled)</text>
+  <rect x="398" y="502" width="324" height="86" rx="10" fill="#111827" stroke="#25344f"/>
+  <text x="416" y="530" fill="#4dd6c8" font-size="12.5" font-weight="600">COSMIC Panel &amp; KDE Plasma Tray</text>
+  <text x="416" y="552" fill="#8fa1bc" font-size="12">Robot glows green while Maprisma runs,</text>
+  <text x="416" y="570" fill="#8fa1bc" font-size="12">plain when stopped.</text>
+</svg>
