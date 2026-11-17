@@ -346,14 +346,81 @@
     dots.forEach((d, i) => d.classList.toggle("active", i === normalized));
   }
 
-  // Opt-in Live GitHub Release & Star Sync (DSGVO-friendly: runs only on explicit click)
+  // Apply repository metadata map from server-side cache or fallback sync
+  function applyRepoMetaMap(reposMap) {
+    if (!reposMap || typeof reposMap !== "object") return;
+    Object.keys(reposMap).forEach((slug) => {
+      const entry = reposMap[slug];
+      if (entry && typeof entry === "object") {
+        state.ghMeta[slug] = Object.assign({}, state.ghMeta[slug], entry);
+      }
+    });
+    try {
+      sessionStorage.setItem("maprisma-gh-meta", JSON.stringify(state.ghMeta));
+    } catch (_) {
+      // Ignore storage quota errors
+    }
+  }
+
+  // Automatic GDPR-clean server-side sync (via Netcup PHP endpoint `api/releases.php`)
+  async function autoSyncServerReleases() {
+    try {
+      const res = await fetch("api/releases.php", {
+        headers: { Accept: "application/json" }
+      });
+      const contentType = (res.headers.get("content-type") || "").toLowerCase();
+      if (!contentType.includes("application/json")) {
+        return; // Local static preview (e.g., python3 -m http.server) — keep bundled versions silently
+      }
+      const payload = await res.json();
+      if (res.ok && payload && payload.ok && payload.repos) {
+        applyRepoMetaMap(payload.repos);
+        state.syncState = "done";
+        updateSyncButtonLabel();
+        renderCards();
+        if (lightboxEl && lightboxEl.classList.contains("open")) {
+          syncLightbox();
+        }
+      }
+    } catch (_) {
+      // Keep bundled versions silently on offline / local preview
+    }
+  }
+
+  // Manual refresh button: uses Netcup server-side proxy first (zero browser calls to GitHub),
+  // falling back to direct GitHub API only in local static dev mode without PHP.
   async function syncGithubReleases() {
     if (state.syncState === "loading") return;
     state.syncState = "loading";
     updateSyncButtonLabel();
 
     try {
-      // Single lightweight org repos call fetches stars for up to 100 repos in 1 request!
+      // 1. Try same-origin Netcup PHP cache endpoint first
+      try {
+        const srvResp = await fetch("api/releases.php?refresh=1", {
+          headers: { Accept: "application/json" }
+        });
+        const srvType = (srvResp.headers.get("content-type") || "").toLowerCase();
+        if (srvType.includes("application/json")) {
+          const payload = await srvResp.json();
+          if (srvResp.ok && payload && payload.ok && payload.repos) {
+            applyRepoMetaMap(payload.repos);
+            state.syncState = "done";
+            updateSyncButtonLabel();
+            renderCards();
+            return;
+          }
+          if (payload && payload.rateLimited) {
+            state.syncState = "ratelimit";
+            updateSyncButtonLabel();
+            return;
+          }
+        }
+      } catch (_) {
+        // Fall through to direct GitHub API fallback for local static dev preview
+      }
+
+      // 2. Fallback for local non-PHP preview (`python3 -m http.server`)
       const orgResp = await fetch("https://api.github.com/orgs/maprisma/repos?per_page=100", {
         headers: { Accept: "application/vnd.github+json" }
       });
@@ -376,7 +443,6 @@
         }
       }
 
-      // Fetch latest release tag for repositories with releases
       const releaseTargets = apps.filter((a) => a.repoSlug && a.releases);
       await Promise.all(
         releaseTargets.map(async (app) => {
@@ -448,6 +514,21 @@
     }
   }
 
+  // Privacy-friendly counter on our own server (no cookies, no storage, no third parties)
+  function track(payload) {
+    if (!/^(www\.)?maprisma\.(com|de)$/.test(location.hostname)) return;
+    try {
+      fetch("api/track.php", {
+        method: "POST",
+        keepalive: true,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      }).catch(() => {});
+    } catch (_) {
+      // Counting must never break the page
+    }
+  }
+
   function openInstallModal(appId) {
     const app = apps.find((a) => a.id === appId);
     if (!app) return;
@@ -504,6 +585,7 @@
         openLightbox(appId);
       } else if (action === "open-install") {
         openInstallModal(appId);
+        track({ e: "install", app: appId, lang: state.lang });
       }
     });
   }
@@ -629,4 +711,6 @@
 
   applyStaticTranslations();
   renderCards();
+  autoSyncServerReleases();
+  track({ e: "visit" });
 })();

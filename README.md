@@ -1,25 +1,26 @@
 # Maprisma Website (`maprisma.com`)
 
-Static, zero-dependency website showcasing all **20 Maprisma apps, applets, shell tools, and signed add-ons** with interactive screenshot galleries, EN/DE language switching, real version badges, and GitHub download/install instructions.
+Fast, privacy-first website showcasing all **20 Maprisma apps, applets, shell tools, and signed add-ons** with interactive screenshot galleries, EN/DE language switching, automatic server-cached GitHub release badges, and download/install instructions.
 
-Hosted on **GitHub Pages** (`maprisma/maprisma.github.io`) with custom domains managed via **Netcup DNS**:
-- **Primary domain:** `https://maprisma.com` (`www.maprisma.com` redirects via GitHub Pages).
-- **German domain redirect:** `https://maprisma.de` (`maprisma/maprisma-de-redirect`) redirects visitors preserving full path, query string, and hash to `https://maprisma.com`.
-- **Zero third-party fonts or trackers on page load** — 100% self-contained static assets, no cookies, no analytics.
-- **Bilingual (`EN` / `DE`)** — automatically matches browser language with an instant toggle in the header.
-- **Privacy-respecting GitHub Release check** — displays real bundled repo versions out of the box and queries `api.github.com` only when a visitor explicitly clicks *Check GitHub Releases*.
-- **No build step required** — edit files directly and push to `main`.
+Hosted in Germany on **Netcup Webhosting 2000** (`hosting255642.a9820.netcup.net`, IP `159.195.152.32`):
+- **Primary domain:** `https://maprisma.com` (`www.maprisma.com` and `maprisma.de` redirect via HTTP 301 preserving path and query string).
+- **100% hosted in Germany (DSGVO-friendly):** Zero third-party fonts, zero cookies, zero third-party analytics (own cookieless counter, see below), and **zero visitor browser calls to GitHub** — latest release tags and stars are synced and cached server-side via `api/releases.php`.
+- **Releases stay on GitHub:** All binaries (`.tar.gz`, `.AppImage`, `.pkg.tar.zst`) and source code remain in `https://github.com/maprisma/*`.
+- **Bilingual (`EN` / `DE`):** Matches browser language automatically with an instant header toggle.
 
 ## Project Structure
 
 - `index.html` — Main landing page, filter bar, install guide, lightbox & install modals.
-- `legal.html` — Bilingual **Impressum (§ 5 DDG)** & **Datenschutzerklärung (DSGVO)** for GitHub Pages hosting + Netcup DNS.
-- `CNAME` — Custom domain declaration (`maprisma.com`) for GitHub Pages.
-- `.nojekyll` — Disables Jekyll processing so static assets are served verbatim.
+- `legal.html` — Bilingual **Impressum (§ 5 DDG)** & **Datenschutzerklärung (DSGVO)** for Netcup hosting (`info@maprisma.com`).
+- `.htaccess` — Canonical `maprisma.de` / `www` 301 redirects, security headers, and asset cache headers.
+- `api/track.php` — Cookieless visit counter (daily-salted hash, no IPs stored) + install-click mail to `info@maprisma.com` (max 20/day).
+- `api/stats.php` — Private stats page `https://maprisma.com/api/stats.php?key=…`; key only on the server in `api/cache/stats-key.txt`.
+- `api/releases.php` — Server-side PHP GitHub Releases & Stars cache (15-min TTL + conditional ETags in `api/cache/`).
+- `deploy.sh` — 1-second `rsync` deployment script over SSH to Netcup (`netcup-maprisma:httpdocs/`).
 - `css/styles.css` — Prismatic dark & light theme styling, responsive 2-col / 3-col card grid.
 - `js/i18n.js` — English & German UI strings.
-- `js/apps.js` — **App catalog data**: edit versions, EN/DE descriptions, GitHub URLs, install commands, and screenshot lists here.
-- `js/main.js` — Filtering, search, language toggle, per-card screenshot slider, lightbox, and opt-in GitHub API release/star sync.
+- `js/apps.js` — **App catalog data**: edit EN/DE descriptions, fallback versions, GitHub URLs, install commands, and screenshot lists here.
+- `js/main.js` — Filtering, search, language toggle, per-card screenshot slider, lightbox, and automatic server-cached release sync.
 - `assets/icons/` — Official Maprisma SVG app icons.
 - `assets/screenshots/` — Cropped `.webp`/`.gif` UI screenshots + `.svg` UI previews.
 
@@ -32,12 +33,11 @@ python3 -m http.server 8080
 
 Then open `http://localhost:8080` in your browser.
 
-## Deploying Updates
-
-Push commits directly to `main` on `maprisma/maprisma.github.io` — GitHub Pages automatically deploys within ~30–60 seconds:
+## Deploying Updates to Netcup
 
 ```bash
-git add -A
-git commit -m "Update website"
-git push origin main
+cd /mnt/Data/Projects/Netcup
+./deploy.sh
 ```
+
+Use `./deploy.sh --dry-run` to preview which files will be synced without changing remote files.

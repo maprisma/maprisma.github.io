@@ -1,0 +1,10 @@
+.ssh/
+.secrets/
+.agents/
+*id_ed25519*
+*.pem
+*.key
+api/cache/*.json
+api/cache/*.lock
+api/cache/github-token.txt
+api/cache/*.txt
