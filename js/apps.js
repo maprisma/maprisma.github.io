@@ -1,13 +1,13 @@
 /**
- * Maprisma App Catalog & Layout Config (Managed by Netcup Control · sha256:4235cf2d5e56)
+ * Maprisma App Catalog & Layout Config (Managed by Netcup Control · sha256:f2a21a6028fe)
  * -----------------------------------------------------------------------------------
  * Source of truth: /mnt/Data/Projects/netcup-control/state/site-control.json
  * Regenerate via: netcup-control-core apply
  */
 window.MAPRISMA_SITE = {
   "defaultCols": 2,
-  "layoutStyle": "classic",
-  "motion": "subtle",
+  "layoutStyle": "bento",
+  "motion": "lively",
   "heroAppId": "maprisma",
   "heroScreenshot": "assets/screenshots/maprisma-map.webp",
   "categories": [
@@ -373,7 +373,7 @@ window.MAPRISMA_APPS = [
     ],
     "screenshots": [
       {
-        "src": "assets/screenshots/settings-preview.svg",
+        "src": "assets/screenshots/settings-apps.webp",
         "caption": "Manage installed Maprisma apps, updates, bar icons, and Ask AI rules",
         "caption_de": "Installierte Maprisma-Apps, Updates, Leisten-Icons und Ask-AI-Regeln verwalten"
       }
@@ -531,9 +531,9 @@ window.MAPRISMA_APPS = [
     ],
     "screenshots": [
       {
-        "src": "assets/screenshots/notifier-preview.svg",
-        "caption": "Grouped notification history popup with unread counts and Do Not Disturb schedule",
-        "caption_de": "Gruppierter Benachrichtigungsverlauf mit Ungelesen-Zähler und Nicht-stören-Zeitplan"
+        "src": "assets/screenshots/notifier-history.webp",
+        "caption": "Notification history grouped by app, with unread markers",
+        "caption_de": "Benachrichtigungsverlauf nach App gruppiert, mit Ungelesen-Markierung"
       }
     ]
   },
@@ -570,9 +570,9 @@ window.MAPRISMA_APPS = [
     ],
     "screenshots": [
       {
-        "src": "assets/screenshots/shell-preview.svg",
-        "caption": "Hyprland desktop running Maprisma Shell bar, notifications, and OSD",
-        "caption_de": "Hyprland-Desktop mit Maprisma-Shell-Leiste, Benachrichtigungen und OSD"
+        "src": "assets/screenshots/shell-desktop.webp",
+        "caption": "Theme-synced Hyprland bar and wallpaper from one Quickshell config",
+        "caption_de": "Farbsynchrone Hyprland-Leiste und Hintergrundbild aus einer Quickshell-Konfiguration"
       }
     ]
   },
@@ -580,7 +580,7 @@ window.MAPRISMA_APPS = [
     "id": "icons",
     "name": "Maprisma Icons",
     "version": "v1.0",
-    "repoSlug": null,
+    "repoSlug": "maprisma/icons",
     "tagline": "Drag-to-reorder KDE Plasma 6 panel widget for all Maprisma tray icons",
     "tagline_de": "KDE-Plasma-6-Leistenwidget zum freien Sortieren aller Maprisma-Icons",
     "description": "KDE Plasma's default system tray sorts icons on its own; Maprisma Icons puts all your Maprisma apps in a dedicated Plasma 6 panel row where you can click, hold, and drag them into your preferred permanent order — with attention dots and native menus.",
@@ -594,9 +594,9 @@ window.MAPRISMA_APPS = [
       "KDE Plasma"
     ],
     "icon": "assets/icons/icons.svg",
-    "github": "https://github.com/maprisma",
+    "github": "https://github.com/maprisma/icons",
     "releases": null,
-    "installCmd": "# Local-only for now: maprisma-panel is not yet on github.com/maprisma.\n# Once published (KDE Plasma 6, no root needed):\ngit clone https://github.com/maprisma/panel.git maprisma-panel\ncd maprisma-panel && ./install.sh\nsystemctl --user restart plasma-plasmashell\n# Then: right-click the panel → Add Widgets… → \"Maprisma Icons\"\n# Optional: Maprisma Settings arranges zones & hidden icons; the built-in\n# Launcher button needs Maprisma Launcher.",
+    "installCmd": "# KDE Plasma 6, no root needed:\ngit clone https://github.com/maprisma/icons.git maprisma-icons\ncd maprisma-icons && ./install.sh\nsystemctl --user restart plasma-plasmashell\n# Then: right-click the panel → Add Widgets… → \"Maprisma Icons\"\n# Optional: Maprisma Settings arranges zones & hidden icons; the built-in\n# Launcher button needs Maprisma Launcher.",
     "highlights": [
       "Click-and-drag custom icon ordering that sticks",
       "Preserves left, middle & right-click tray menus",
@@ -609,9 +609,9 @@ window.MAPRISMA_APPS = [
     ],
     "screenshots": [
       {
-        "src": "assets/screenshots/icons-preview.svg",
-        "caption": "Custom-ordered Maprisma icon row inside the KDE Plasma 6 panel",
-        "caption_de": "Frei sortierbare Maprisma-Symbolreihe in der KDE-Plasma-6-Leiste"
+        "src": "assets/screenshots/icons-kde-panel.webp",
+        "caption": "Maprisma Icons in the KDE Plasma 6 panel: your Maprisma apps in one row, in your own order",
+        "caption_de": "Maprisma Icons in der KDE-Plasma-6-Leiste: alle Maprisma-Apps in einer Reihe, in deiner Reihenfolge"
       }
     ]
   },
@@ -648,9 +648,9 @@ window.MAPRISMA_APPS = [
     ],
     "screenshots": [
       {
-        "src": "assets/screenshots/addons-preview.svg",
-        "caption": "Signed declarative catalog of coding agents, local LLMs, and online providers",
-        "caption_de": "Signierter Katalog für Coding-Agenten, lokale LLMs und Online-Anbieter"
+        "src": "assets/screenshots/addons-catalog.webp",
+        "caption": "Install, update and switch off signed add-ons for agents and local LLM providers",
+        "caption_de": "Signierte Add-ons für Agenten und lokale LLM-Anbieter installieren, aktualisieren und abschalten"
       }
     ]
   }

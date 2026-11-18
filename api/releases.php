@@ -99,6 +99,7 @@ $defaultSlugs = [
     'maprisma/playground',
     'maprisma/notifier',
     'maprisma/shell',
+    'maprisma/icons',
     'maprisma/maprisma-addons',
 ];
 
