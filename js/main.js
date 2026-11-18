@@ -27,7 +27,7 @@
     category: "all",
     desktop: "all",
     query: "",
-    cols: 2,
+    cols: (window.MAPRISMA_SITE && window.MAPRISMA_SITE.defaultCols) || 2,
     cardSlide: {}, // appId -> current screenshot index
     lightbox: { appId: null, index: 0 },
     ghMeta: cachedGithubMeta, // repoSlug -> { version, stars, releaseUrl }
@@ -41,6 +41,8 @@
   const filterChips = document.querySelectorAll(".filter-chip");
   const viewButtons = document.querySelectorAll("[data-cols]");
   const langButtons = document.querySelectorAll("[data-lang]");
+  const themeSelect = document.getElementById("theme-select");
+  const cornerButtons = document.querySelectorAll("button[data-corners]");
   const syncBtn = document.getElementById("sync-github-btn");
 
   // Lightbox elements
@@ -99,6 +101,20 @@
     if (searchInput) {
       searchInput.placeholder = t("searchPlaceholder");
     }
+
+    if (themeSelect) {
+      const themeLabel = t("themeLabel");
+      themeSelect.setAttribute("aria-label", themeLabel);
+      themeSelect.setAttribute("title", themeLabel);
+    }
+
+    const cornerGroup = document.querySelector(".corner-switch");
+    if (cornerGroup) cornerGroup.setAttribute("aria-label", t("cornersLabel"));
+    cornerButtons.forEach((btn) => {
+      const label = t(btn.dataset.corners === "square" ? "cornersSquare" : "cornersRound");
+      btn.setAttribute("aria-label", label);
+      btn.setAttribute("title", label);
+    });
 
     langButtons.forEach((btn) => {
       btn.classList.toggle("active", btn.dataset.lang === state.lang);
@@ -173,6 +189,51 @@
     });
   }
 
+  let revealObserver = null;
+  const reducedMotionQuery =
+    typeof window.matchMedia === "function" ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
+
+  function observeCardReveals() {
+    if (!gridEl) return;
+    const motion = document.documentElement.getAttribute("data-motion") || "subtle";
+    const reduced = Boolean(reducedMotionQuery && reducedMotionQuery.matches);
+    const cards = gridEl.querySelectorAll(".app-card");
+    if (revealObserver) {
+      revealObserver.disconnect();
+      revealObserver = null;
+    }
+    if (motion === "off" || reduced || typeof IntersectionObserver !== "function") {
+      document.documentElement.classList.remove("motion-ready");
+      cards.forEach((c) => c.classList.add("is-revealed"));
+      return;
+    }
+    document.documentElement.classList.add("motion-ready");
+    const viewH = window.innerHeight || document.documentElement.clientHeight || 900;
+    revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-revealed");
+            if (revealObserver) revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: "0px 0px -6% 0px", threshold: 0.06 }
+    );
+    cards.forEach((card) => {
+      const rect = card.getBoundingClientRect();
+      if (rect.top < viewH * 0.96) {
+        card.classList.add("is-revealed");
+      } else {
+        revealObserver.observe(card);
+      }
+    });
+  }
+
+  if (reducedMotionQuery && typeof reducedMotionQuery.addEventListener === "function") {
+    reducedMotionQuery.addEventListener("change", observeCardReveals);
+  }
+
   function renderCards() {
     if (!gridEl) return;
     const filtered = getFilteredApps();
@@ -208,7 +269,7 @@
     }
 
     gridEl.innerHTML = filtered
-      .map((app) => {
+      .map((app, cardIdx) => {
         const shots = app.screenshots || [];
         const idx = state.cardSlide[app.id] || 0;
         const activeShot = shots[idx] || { src: "", caption: app.name };
@@ -219,7 +280,7 @@
         const highlights = appText(app, "highlights") || [];
 
         return `
-        <article class="app-card" data-app-id="${escapeHtml(app.id)}">
+        <article class="app-card" data-app-id="${escapeHtml(app.id)}"${app.featured ? ' data-featured="true"' : ""} data-category="${escapeHtml(app.category || "")}" style="--card-idx: ${cardIdx}">
           <div class="card-media">
             <img
               src="${escapeHtml(activeShot.src)}"
@@ -320,6 +381,7 @@
       `;
       })
       .join("");
+    observeCardReveals();
   }
 
   function updateCardSlide(appId, nextIdx) {
@@ -420,7 +482,13 @@
         // Fall through to direct GitHub API fallback for local static dev preview
       }
 
-      // 2. Fallback for local non-PHP preview (`python3 -m http.server`)
+      // 2. Fallback strictly for local non-PHP preview (`python3 -m http.server`), never on live domains (GDPR)
+      const isLocalPreviewHost = location.protocol === "file:" || location.hostname === "localhost" || location.hostname === "127.0.0.1";
+      if (!isLocalPreviewHost) {
+        state.syncState = "idle";
+        updateSyncButtonLabel();
+        return;
+      }
       const orgResp = await fetch("https://api.github.com/orgs/maprisma/repos?per_page=100", {
         headers: { Accept: "application/vnd.github+json" }
       });
@@ -592,7 +660,7 @@
 
   const heroShowcase = document.getElementById("hero-showcase");
   if (heroShowcase) {
-    heroShowcase.addEventListener("click", () => openLightbox("maprisma", 0));
+    heroShowcase.addEventListener("click", () => openLightbox((window.MAPRISMA_SITE && window.MAPRISMA_SITE.heroAppId) || "maprisma", 0));
   }
 
   filterChips.forEach((chip) => {
@@ -691,24 +759,96 @@
   });
 
   // Theme switcher
-  const themeBtn = document.getElementById("theme-toggle");
-  const savedTheme = localStorage.getItem("maprisma-site-theme") || "dark";
-  if (savedTheme === "light") {
-    document.documentElement.setAttribute("data-theme", "light");
-  }
-  if (themeBtn) {
-    themeBtn.addEventListener("click", () => {
-      const isLight = document.documentElement.getAttribute("data-theme") === "light";
-      if (isLight) {
-        document.documentElement.removeAttribute("data-theme");
-        localStorage.setItem("maprisma-site-theme", "dark");
-      } else {
-        document.documentElement.setAttribute("data-theme", "light");
-        localStorage.setItem("maprisma-site-theme", "light");
+  const THEMES = {
+    dark: { mode: "dark", color: "#0a0e17" },
+    light: { mode: "light", color: "#f4f7fb" },
+    "tokyo-night": { mode: "dark", color: "#13141c" },
+    catppuccin: { mode: "dark", color: "#161622" },
+    nord: { mode: "dark", color: "#222730" },
+    gruvbox: { mode: "dark", color: "#1e1e1e" },
+    "flexoki-light": { mode: "light", color: "#f2efe4" }
+  };
+
+  function getSavedTheme() {
+    try {
+      const raw = localStorage.getItem("maprisma-site-theme");
+      if (raw && Object.prototype.hasOwnProperty.call(THEMES, raw)) {
+        return raw;
       }
+    } catch (_) {
+      // Ignore storage access errors
+    }
+    return "dark";
+  }
+
+  function applyTheme(slug, persist) {
+    const valid = Object.prototype.hasOwnProperty.call(THEMES, slug) ? slug : "dark";
+    const info = THEMES[valid];
+    if (valid === "dark") {
+      document.documentElement.removeAttribute("data-theme");
+    } else {
+      document.documentElement.setAttribute("data-theme", valid);
+    }
+    document.documentElement.setAttribute("data-mode", info.mode);
+
+    const colorSchemeMeta = document.querySelector('meta[name="color-scheme"]');
+    if (colorSchemeMeta) colorSchemeMeta.setAttribute("content", info.mode);
+    const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+    if (themeColorMeta) themeColorMeta.setAttribute("content", info.color);
+
+    if (themeSelect && themeSelect.value !== valid) {
+      themeSelect.value = valid;
+    }
+    if (persist) {
+      try {
+        localStorage.setItem("maprisma-site-theme", valid);
+      } catch (_) {
+        // Ignore storage quota or privacy mode errors
+      }
+    }
+  }
+
+  applyTheme(getSavedTheme(), false);
+
+  // Corners: rounded (default) or square, remembered like the theme
+  function applyCorners(value, persist) {
+    const corners = value === "square" ? "square" : "round";
+    if (corners === "square") {
+      document.documentElement.setAttribute("data-corners", "square");
+    } else {
+      document.documentElement.removeAttribute("data-corners");
+    }
+    cornerButtons.forEach((btn) => {
+      const on = btn.dataset.corners === corners;
+      btn.classList.toggle("active", on);
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+    if (persist) {
+      try {
+        localStorage.setItem("maprisma-site-corners", corners);
+      } catch (_) {
+        // Ignore storage quota or privacy mode errors
+      }
+    }
+  }
+
+  let savedCorners = "round";
+  try {
+    savedCorners = localStorage.getItem("maprisma-site-corners") || "round";
+  } catch (_) {
+    // Ignore storage access errors
+  }
+  applyCorners(savedCorners, false);
+  cornerButtons.forEach((btn) => {
+    btn.addEventListener("click", () => applyCorners(btn.dataset.corners, true));
+  });
+  if (themeSelect) {
+    themeSelect.addEventListener("change", () => {
+      applyTheme(themeSelect.value, true);
     });
   }
 
+  if (gridEl) gridEl.classList.toggle("cols-3", state.cols === 3); viewButtons.forEach((b) => b.classList.toggle("active", Number(b.dataset.cols) === state.cols)); // init-cols
   applyStaticTranslations();
   renderCards();
   autoSyncServerReleases();

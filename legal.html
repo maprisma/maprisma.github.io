@@ -1,12 +1,77 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" data-layout="classic" data-motion="subtle">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Maprisma — Impressum &amp; Datenschutz / Legal &amp; Privacy</title>
   <meta name="robots" content="noindex" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#0a0e17" />
+  <script>
+    (function () {
+      var themes = {
+        dark: { mode: "dark", color: "#0a0e17" },
+        light: { mode: "light", color: "#f4f7fb" },
+        "tokyo-night": { mode: "dark", color: "#13141c" },
+        catppuccin: { mode: "dark", color: "#161622" },
+        nord: { mode: "dark", color: "#222730" },
+        gruvbox: { mode: "dark", color: "#1e1e1e" },
+        "flexoki-light": { mode: "light", color: "#f2efe4" }
+      };
+      try {
+        if (localStorage.getItem("maprisma-site-corners") === "square") {
+          document.documentElement.setAttribute("data-corners", "square");
+        }
+      } catch (_) {}
+      var saved = "dark";
+      try {
+        saved = localStorage.getItem("maprisma-site-theme") || "dark";
+      } catch (_) {}
+      if (!Object.prototype.hasOwnProperty.call(themes, saved)) saved = "dark";
+      var info = themes[saved];
+      var root = document.documentElement;
+      if (saved === "dark") root.removeAttribute("data-theme");
+      else root.setAttribute("data-theme", saved);
+      root.setAttribute("data-mode", info.mode);
+      var cs = document.querySelector('meta[name="color-scheme"]');
+      if (cs) cs.setAttribute("content", info.mode);
+      var tc = document.querySelector('meta[name="theme-color"]');
+      if (tc) tc.setAttribute("content", info.color);
+    })();
+  </script>
   <link rel="icon" type="image/svg+xml" href="assets/icons/maprisma.svg" />
   <link rel="stylesheet" href="css/styles.css" />
+  <!-- netcup-control:layout-css -->
+  <style id="maprisma-motion-guard">
+    html[data-motion="off"],
+    html[data-motion="off"] *,
+    html[data-motion="off"] *::before,
+    html[data-motion="off"] *::after {
+      animation: none !important;
+      transition: none !important;
+      scroll-behavior: auto !important;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html,
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        animation-delay: 0s !important;
+        transition-duration: 0.01ms !important;
+        transition-delay: 0s !important;
+        scroll-behavior: auto !important;
+      }
+      html[data-layout],
+      html[data-layout] *,
+      html[data-layout] *::before,
+      html[data-layout] *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -29,18 +94,26 @@
           <button type="button" data-legal-lang="de" class="active">DE</button>
         </div>
 
-        <button
-          type="button"
-          id="legal-theme-toggle"
-          class="icon-btn"
-          title="Switch dark / light theme"
-          aria-label="Switch dark or light theme"
-        >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="4"></circle>
-            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+        <div class="lang-switch corner-switch" role="group" aria-label="Corners">
+          <button type="button" data-corners="round" class="active" aria-pressed="true" title="Rounded corners" aria-label="Rounded corners"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 14V7a5 5 0 0 1 5-5h7"/></svg></button>
+          <button type="button" data-corners="square" aria-pressed="false" title="Square corners" aria-label="Square corners"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M2 14V2h12"/></svg></button>
+        </div>
+
+        <div class="theme-switch">
+          <span class="theme-swatch" aria-hidden="true"></span>
+          <select id="legal-theme-select" class="theme-select" aria-label="Design" title="Design">
+            <option value="dark">Maprisma Dark</option>
+            <option value="light">Maprisma Light</option>
+            <option value="tokyo-night">Tokyo Night</option>
+            <option value="catppuccin">Catppuccin</option>
+            <option value="nord">Nord</option>
+            <option value="gruvbox">Gruvbox</option>
+            <option value="flexoki-light">Flexoki Light</option>
+          </select>
+          <svg class="theme-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="4 6 8 10 12 6"></polyline>
           </svg>
-        </button>
+        </div>
       </div>
     </div>
   </header>
@@ -216,20 +289,76 @@
 
   <script>
     (function () {
-      const savedTheme = localStorage.getItem("maprisma-site-theme") || "dark";
-      if (savedTheme === "light") {
-        document.documentElement.setAttribute("data-theme", "light");
+      var themes = {
+        dark: { mode: "dark", color: "#0a0e17" },
+        light: { mode: "light", color: "#f4f7fb" },
+        "tokyo-night": { mode: "dark", color: "#13141c" },
+        catppuccin: { mode: "dark", color: "#161622" },
+        nord: { mode: "dark", color: "#222730" },
+        gruvbox: { mode: "dark", color: "#1e1e1e" },
+        "flexoki-light": { mode: "light", color: "#f2efe4" }
+      };
+      var themeSelect = document.getElementById("legal-theme-select");
+
+      function getSavedTheme() {
+        try {
+          var raw = localStorage.getItem("maprisma-site-theme");
+          if (raw && Object.prototype.hasOwnProperty.call(themes, raw)) return raw;
+        } catch (_) {}
+        return "dark";
       }
-      document.getElementById("legal-theme-toggle").addEventListener("click", function () {
-        const isLight = document.documentElement.getAttribute("data-theme") === "light";
-        if (isLight) {
-          document.documentElement.removeAttribute("data-theme");
-          localStorage.setItem("maprisma-site-theme", "dark");
-        } else {
-          document.documentElement.setAttribute("data-theme", "light");
-          localStorage.setItem("maprisma-site-theme", "light");
+
+      function applyLegalTheme(slug, persist) {
+        var valid = Object.prototype.hasOwnProperty.call(themes, slug) ? slug : "dark";
+        var info = themes[valid];
+        if (valid === "dark") document.documentElement.removeAttribute("data-theme");
+        else document.documentElement.setAttribute("data-theme", valid);
+        document.documentElement.setAttribute("data-mode", info.mode);
+        var cs = document.querySelector('meta[name="color-scheme"]');
+        if (cs) cs.setAttribute("content", info.mode);
+        var tc = document.querySelector('meta[name="theme-color"]');
+        if (tc) tc.setAttribute("content", info.color);
+        if (themeSelect && themeSelect.value !== valid) themeSelect.value = valid;
+        if (persist) {
+          try {
+            localStorage.setItem("maprisma-site-theme", valid);
+          } catch (_) {}
         }
+      }
+
+      applyLegalTheme(getSavedTheme(), false);
+
+      var cornerButtons = document.querySelectorAll("button[data-corners]");
+      function applyLegalCorners(value, persist) {
+        var corners = value === "square" ? "square" : "round";
+        if (corners === "square") document.documentElement.setAttribute("data-corners", "square");
+        else document.documentElement.removeAttribute("data-corners");
+        cornerButtons.forEach(function (btn) {
+          var on = btn.dataset.corners === corners;
+          btn.classList.toggle("active", on);
+          btn.setAttribute("aria-pressed", on ? "true" : "false");
+        });
+        if (persist) {
+          try {
+            localStorage.setItem("maprisma-site-corners", corners);
+          } catch (_) {}
+        }
+      }
+      var savedCorners = "round";
+      try {
+        savedCorners = localStorage.getItem("maprisma-site-corners") || "round";
+      } catch (_) {}
+      applyLegalCorners(savedCorners, false);
+      cornerButtons.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          applyLegalCorners(btn.dataset.corners, true);
+        });
       });
+      if (themeSelect) {
+        themeSelect.addEventListener("change", function () {
+          applyLegalTheme(themeSelect.value, true);
+        });
+      }
 
       function setLegalLang(lang) {
         document.documentElement.lang = lang;
@@ -241,10 +370,29 @@
         document.querySelectorAll("[data-de]").forEach(function (el) {
           el.textContent = lang === "de" ? el.dataset.de : el.dataset.en;
         });
-        localStorage.setItem("maprisma-site-lang", lang);
+        cornerButtons.forEach(function (btn) {
+          var sq = btn.dataset.corners === "square";
+          var cl = lang === "de" ? (sq ? "Eckige Ecken" : "Abgerundete Ecken") : (sq ? "Square corners" : "Rounded corners");
+          btn.setAttribute("aria-label", cl);
+          btn.setAttribute("title", cl);
+        });
+        var cg = document.querySelector(".corner-switch");
+        if (cg) cg.setAttribute("aria-label", lang === "de" ? "Ecken" : "Corners");
+        if (themeSelect) {
+          var label = lang === "de" ? "Design" : "Theme";
+          themeSelect.setAttribute("aria-label", label);
+          themeSelect.setAttribute("title", label);
+        }
+        try {
+          localStorage.setItem("maprisma-site-lang", lang);
+        } catch (_) {}
       }
 
-      const initLang = localStorage.getItem("maprisma-site-lang") ||
+      var savedLang = "";
+      try {
+        savedLang = localStorage.getItem("maprisma-site-lang") || "";
+      } catch (_) {}
+      const initLang = savedLang ||
         ((navigator.language || "").toLowerCase().startsWith("de") ? "de" : "en");
       setLegalLang(initLang === "en" ? "en" : "de");
 

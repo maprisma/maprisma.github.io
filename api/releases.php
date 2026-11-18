@@ -89,22 +89,16 @@ if ($lockFp !== false) {
 // Known Maprisma catalog repositories (fallback & release check targets)
 $defaultSlugs = [
     'maprisma/maprisma',
-    'maprisma/settings',
-    'maprisma/launcher',
     'maprisma/theme',
-    'maprisma/playground',
-    'maprisma/mail',
-    'maprisma/dictation',
-    'maprisma/video-translator',
-    'maprisma/narrator',
-    'maprisma/llm-monitor',
     'maprisma/wlan-monitor',
+    'maprisma/llm-monitor',
     'maprisma/bluetooth-monitor',
     'maprisma/hue-lights',
+    'maprisma/settings',
+    'maprisma/launcher',
+    'maprisma/playground',
     'maprisma/notifier',
-    'maprisma/control',
     'maprisma/shell',
-    'maprisma/maprisma-kwin-scripts',
     'maprisma/maprisma-addons',
 ];
 
@@ -262,6 +256,9 @@ if ($orgRes['status'] === 403 || $orgRes['status'] === 429) {
     $rateLimited = true;
 } elseif ($orgRes['status'] === 200 && is_array($orgRes['data'])) {
     foreach ($orgRes['data'] as $repo) {
+        if (!empty($repo['private'])) {
+            continue;
+        }
         if (!is_array($repo) || empty($repo['full_name'])) {
             continue;
         }

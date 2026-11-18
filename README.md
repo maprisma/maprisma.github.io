@@ -1,6 +1,6 @@
 # Maprisma Website (`maprisma.com`)
 
-Fast, privacy-first website showcasing all **20 Maprisma apps, applets, shell tools, and signed add-ons** with interactive screenshot galleries, EN/DE language switching, automatic server-cached GitHub release badges, and download/install instructions.
+Fast, privacy-first website showcasing all **13 Maprisma apps, applets, shell tools, and signed add-ons** with interactive screenshot galleries, EN/DE language switching, automatic server-cached GitHub release badges, and download/install instructions.
 
 Hosted in Germany on **Netcup Webhosting 2000** (`hosting255642.a9820.netcup.net`, IP `159.195.152.32`):
 - **Primary domain:** `https://maprisma.com` (`www.maprisma.com` and `maprisma.de` redirect via HTTP 301 preserving path and query string).

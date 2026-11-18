@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Maprisma Price Watch: Maprisma's frame and colours; a price tag with a falling line. -->
+  <rect x="4" y="4" width="56" height="56" rx="14" fill="#1a2234"/>
+  <g fill="none" stroke="#4dd6c8" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M14 30 L30 14 H48 a2 2 0 0 1 2 2 V34 L34 50 a3 3 0 0 1 -4.2 0 L14 34.2 a3 3 0 0 1 0 -4.2 Z"/>
+    <circle cx="41" cy="23" r="3"/>
+  </g>
+  <path d="M22 34 L29 39 L34 33 L41 40" fill="none" stroke="#4dd6c8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity=".55"/>
+</svg>
