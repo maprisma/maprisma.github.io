@@ -1,5 +1,5 @@
 /**
- * Maprisma App Catalog & Layout Config (Managed by Netcup Control · sha256:596b4535f08c)
+ * Maprisma App Catalog & Layout Config (Managed by Netcup Control · sha256:5719b41ad575)
  * -----------------------------------------------------------------------------------
  * Source of truth: /mnt/Data/Projects/netcup-control/state/site-control.json
  * Regenerate via: netcup-control-core apply
@@ -48,7 +48,7 @@ window.MAPRISMA_APPS = [
   {
     "id": "maprisma",
     "name": "Maprisma",
-    "version": "v0.14.6",
+    "version": "v0.14.7",
     "repoSlug": "maprisma/maprisma",
     "tagline": "Your AI agents, local LLMs, models & MCP tools on one visual map",
     "tagline_de": "Deine KI-Agenten, lokalen LLMs, Modelle & MCP-Tools auf einer Karte",
