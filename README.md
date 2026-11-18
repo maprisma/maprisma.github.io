@@ -1,5 +1,7 @@
 # Maprisma Website (`maprisma.com`)
 
+**Live Website:** [https://maprisma.com](https://maprisma.com) · **GitHub Org:** [https://github.com/maprisma](https://github.com/maprisma)
+
 Fast, privacy-first website showcasing all **13 Maprisma apps, applets, shell tools, and signed add-ons** with interactive screenshot galleries, EN/DE language switching, automatic server-cached GitHub release badges, and download/install instructions.
 
 Hosted in Germany on **Netcup Webhosting 2000** (`hosting255642.a9820.netcup.net`, IP `159.195.152.32`):
@@ -12,6 +14,7 @@ Hosted in Germany on **Netcup Webhosting 2000** (`hosting255642.a9820.netcup.net
 
 - `index.html` — Main landing page, filter bar, install guide, lightbox & install modals.
 - `legal.html` — Bilingual **Impressum (§ 5 DDG)** & **Datenschutzerklärung (DSGVO)** for Netcup hosting (`info@maprisma.com`).
+- `robots.txt` & `sitemap.xml` — Search engine crawl rules (blocks `/api/`) and canonical sitemap for `https://maprisma.com/`.
 - `.htaccess` — Canonical `maprisma.de` / `www` 301 redirects, security headers, and asset cache headers.
 - `api/track.php` — Cookieless visit counter (daily-salted hash, no IPs stored) + install-click mail to `info@maprisma.com` (max 20/day).
 - `api/stats.php` — Private stats page `https://maprisma.com/api/stats.php?key=…`; key only on the server in `api/cache/stats-key.txt`.

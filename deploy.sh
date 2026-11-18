@@ -94,7 +94,7 @@ else
 
   # Strict public allowlist staging (refuses symlinks & excludes dot-files identically to Core)
   mkdir -p "${STAGE_DIR}/api/cache"
-  for f in index.html legal.html .htaccess; do
+  for f in index.html legal.html robots.txt sitemap.xml .htaccess; do
     if [[ -L "${SITE_ROOT}/${f}" ]]; then echo "Refusing symlink: ${f}" >&2; exit 2; fi
     [[ -f "${SITE_ROOT}/${f}" ]] && cp -p "${SITE_ROOT}/${f}" "${STAGE_DIR}/${f}"
   done
@@ -136,7 +136,7 @@ fi
 while IFS= read -r -d '' entry; do
   rel="${entry#"${STAGE_DIR}/"}"
   case "${rel}" in
-    index.html|legal.html|.htaccess|api|api/cache|api/cache/.htaccess)
+    index.html|legal.html|robots.txt|sitemap.xml|.htaccess|api|api/cache|api/cache/.htaccess)
       ;;
     api/*.php)
       base_rel="$(basename "${rel}")"

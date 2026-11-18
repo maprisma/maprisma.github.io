@@ -3,7 +3,7 @@
  */
 window.MAPRISMA_I18N = {
   en: {
-    pageTitle: "Maprisma Apps — Local-First AI & Linux Desktop Suite",
+    pageTitle: "Maprisma — Local-First AI Agents, MCP & Linux Desktop Suite",
     brandBadge: "Open Source · Linux",
     navApps: "All Apps",
     navInstall: "Download & Install",
@@ -81,7 +81,7 @@ window.MAPRISMA_I18N = {
   },
 
   de: {
-    pageTitle: "Maprisma Apps — Lokale KI- & Linux-Desktop-Suite",
+    pageTitle: "Maprisma — Lokale KI-Agenten, MCP & Linux-Desktop-Suite",
     brandBadge: "Open Source · Linux",
     navApps: "Alle Apps",
     navInstall: "Download & Installation",

@@ -1,5 +1,5 @@
 /**
- * Maprisma App Catalog & Layout Config (Managed by Netcup Control · sha256:f2a21a6028fe)
+ * Maprisma App Catalog & Layout Config (Managed by Netcup Control · sha256:596b4535f08c)
  * -----------------------------------------------------------------------------------
  * Source of truth: /mnt/Data/Projects/netcup-control/state/site-control.json
  * Regenerate via: netcup-control-core apply
@@ -52,8 +52,8 @@ window.MAPRISMA_APPS = [
     "repoSlug": "maprisma/maprisma",
     "tagline": "Your AI agents, local LLMs, models & MCP tools on one visual map",
     "tagline_de": "Deine KI-Agenten, lokalen LLMs, Modelle & MCP-Tools auf einer Karte",
-    "description": "See and connect your entire local and cloud AI setup on one interactive map. Draw a line to wire coding agents (Claude Code, Codex, Copilot, Gemini, Antigravity, OpenCode, Pi) to local LLMs (llama.cpp, Ollama, LM Studio, vLLM), MCP servers, and skill folders — with SHA-256 verified installs, security checks, and full Undo.",
-    "description_de": "Sieh und verbinde dein gesamtes lokales und Cloud-KI-Setup auf einer interaktiven Karte. Ziehe einfach eine Linie, um Coding-Agenten (Claude Code, Codex, Copilot, Gemini, Antigravity, OpenCode, Pi) mit lokalen LLMs (llama.cpp, Ollama, LM Studio, vLLM), MCP-Servern und Skill-Ordnern zu verknüpfen — inklusive SHA-256-Prüfung, Sicherheitscheck und Rückgängig-Funktion.",
+    "description": "See and connect your entire local and cloud AI setup on one interactive map. Draw a line to wire coding agents (Claude Code, Codex, Copilot, Gemini, Antigravity, OpenCode, Pi) to local LLMs (llama.cpp, Ollama, LM Studio, vLLM), MCP servers, and skill folders — with live agent activity reporting, an opt-in local activity log, SHA-256 verified installs, security checks, and full Undo.",
+    "description_de": "Sieh und verbinde dein gesamtes lokales und Cloud-KI-Setup auf einer interaktiven Karte. Ziehe einfach eine Linie, um Coding-Agenten (Claude Code, Codex, Copilot, Gemini, Antigravity, OpenCode, Pi) mit lokalen LLMs (llama.cpp, Ollama, LM Studio, vLLM), MCP-Servern und Skill-Ordnern zu verknüpfen — inklusive Live-Aktivitätsbericht für laufende Agenten, optionalem lokalen Aktivitätsprotokoll, SHA-256-Prüfung, Sicherheitscheck und Rückgängig-Funktion.",
     "category": "ai",
     "categoryLabel": "AI & Voice",
     "categoryLabel_de": "KI & Sprache",
@@ -70,14 +70,14 @@ window.MAPRISMA_APPS = [
     "releases": "https://github.com/maprisma/maprisma/releases",
     "installCmd": "# Download the latest release archive from GitHub Releases, verify & install:\nsha256sum -c maprisma-*-x86_64.tar.gz.sha256\ntar -xzf maprisma-*-x86_64.tar.gz && cd maprisma-*\n./install.sh",
     "highlights": [
-      "Draw-to-connect map with live preview & Undo",
-      "SHA-256 verified local LLM & GGUF downloads",
-      "Agent health, permissions & security check"
+      "Draw-to-connect 2D/3D map with live preview & Undo",
+      "Live agent activity reports & opt-in local activity log (TXT/JSON/MCP)",
+      "SHA-256 verified local LLM downloads & per-agent security check"
     ],
     "highlights_de": [
-      "Verbinden per Linie mit Vorschau & Undo",
-      "SHA-256-geprüfte lokale LLM- & Modell-Downloads",
-      "Berechtigungs- & Sicherheitscheck pro Agent"
+      "Verbinden per Linie auf der 2D-/3D-Karte mit Vorschau & Undo",
+      "Live-Aktivitätsberichte & optionales lokales Aktivitätsprotokoll (TXT/JSON/MCP)",
+      "SHA-256-geprüfte lokale LLM-Downloads & Sicherheitscheck pro Agent"
     ],
     "screenshots": [
       {
