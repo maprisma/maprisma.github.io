@@ -23,8 +23,6 @@ if (strlen($secret) < 16 || !hash_equals($secret, $given)) {
     exit;
 }
 
-header('Content-Type: text/html; charset=utf-8');
-
 $json  = @file_get_contents(__DIR__ . '/cache/stats.json');
 $stats = is_string($json) ? json_decode($json, true) : null;
 $days  = is_array($stats['days'] ?? null) ? $stats['days'] : [];
@@ -55,6 +53,31 @@ foreach ($days as $date => $d) {
     }
 }
 arsort($appsAll);
+
+// ?format=json: the same figures for Maprisma My Apps (PHP 7.4 compatible).
+if (($_GET['format'] ?? '') === 'json') {
+    header('Content-Type: application/json; charset=utf-8');
+    $out = [];
+    foreach ($days as $date => $d) {
+        $out[(string) $date] = [
+            'visitors' => (int) ($d['visitors'] ?? 0),
+            'views'    => (int) ($d['views'] ?? 0),
+            'installs' => is_array($d['installs'] ?? null) ? $d['installs'] : [],
+        ];
+    }
+    echo json_encode([
+        'schema'   => 1,
+        'since'    => $stats['since'] ?? null,
+        'total'    => $tot,
+        'last30'   => $t30,
+        'apps'     => $appsAll,
+        'apps30'   => $apps30,
+        'days'     => (object) $out,
+    ], JSON_UNESCAPED_SLASHES);
+    exit;
+}
+
+header('Content-Type: text/html; charset=utf-8');
 ?>
 <!doctype html>
 <html lang="en">
