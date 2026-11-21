@@ -130,7 +130,7 @@
                 "name": "Maprisma Theme",
                 "applicationCategory": "DesktopEnhancementApplication",
                 "operatingSystem": "Linux (COSMIC, KDE Plasma, Hyprland)",
-                "softwareVersion": "0.5.0",
+                "softwareVersion": "0.6.2",
                 "url": "https://github.com/maprisma/theme",
                 "codeRepository": "https://github.com/maprisma/theme",
                 "sameAs": "https://github.com/maprisma/theme",
@@ -225,7 +225,7 @@
                 "name": "Maprisma Settings",
                 "applicationCategory": "UtilitiesApplication",
                 "operatingSystem": "Linux (COSMIC, KDE Plasma, Hyprland)",
-                "softwareVersion": "0.4.1",
+                "softwareVersion": "0.5.1",
                 "url": "https://github.com/maprisma/settings",
                 "codeRepository": "https://github.com/maprisma/settings",
                 "sameAs": "https://github.com/maprisma/settings",
@@ -244,7 +244,7 @@
                 "name": "Maprisma Launcher",
                 "applicationCategory": "DesktopEnhancementApplication",
                 "operatingSystem": "Linux (COSMIC, KDE Plasma, Hyprland)",
-                "softwareVersion": "0.2.0",
+                "softwareVersion": "0.4.1",
                 "url": "https://github.com/maprisma/launcher",
                 "codeRepository": "https://github.com/maprisma/launcher",
                 "sameAs": "https://github.com/maprisma/launcher",
@@ -263,7 +263,7 @@
                 "name": "Maprisma Playground",
                 "applicationCategory": "DeveloperApplication",
                 "operatingSystem": "Linux (COSMIC, KDE Plasma)",
-                "softwareVersion": "0.2.3",
+                "softwareVersion": "0.3.1",
                 "url": "https://github.com/maprisma/playground",
                 "codeRepository": "https://github.com/maprisma/playground",
                 "sameAs": "https://github.com/maprisma/playground",
@@ -638,7 +638,7 @@
           <p data-i18n-html="installSubheading">
             Every Maprisma app lives in the
             <a href="https://github.com/maprisma" target="_blank" rel="noopener noreferrer" style="color: var(--accent-cyan); text-decoration: underline;">github.com/maprisma</a>
-            organization. Pick a prebuilt release archive / AppImage, manage the whole suite via
+            organization. Maprisma and the windowed apps (Settings, Theme, Launcher, Playground) come as a ready-to-run AppImage, manage the whole suite via
             <strong>Maprisma Settings</strong>, or install any repository directly with its local installer script.
           </p>
         </div>
@@ -646,16 +646,15 @@
         <div class="install-grid">
           <div class="install-card">
             <span class="install-step">1</span>
-            <h3 data-i18n="step1Title">Release Archive or AppImage</h3>
+            <h3 data-i18n="step1Title">AppImage or Release Archive</h3>
             <p data-i18n-html="step1Desc">
-              Download the prebuilt <code>x86_64</code> archive (recommended for background local LLM integration) or portable AppImage from GitHub Releases and verify its SHA-256 checksum.
+              Maprisma, Maprisma Settings, Theme, Launcher and Playground have a portable <code>x86_64</code> AppImage and a release archive on each app's GitHub Releases page. Check the SHA-256 checksum, make the AppImage executable and start it. For Maprisma the archive is recommended (background local LLM service). Panel applets, tray icons and the shell are installed from source (step 3).
             </p>
             <div class="code-block">
               <button type="button" class="copy-inline-btn" data-copy-target="cmd-release" data-i18n="copyBtn">Copy</button>
-              <pre id="cmd-release">sha256sum -c maprisma-*-x86_64.tar.gz.sha256
-tar -xzf maprisma-*-x86_64.tar.gz
-cd maprisma-*
-./install.sh</pre>
+              <pre id="cmd-release">sha256sum -c Maprisma-Settings-*-x86_64.AppImage.sha256
+chmod +x Maprisma-Settings-*-x86_64.AppImage
+./Maprisma-Settings-*-x86_64.AppImage</pre>
             </div>
           </div>
 

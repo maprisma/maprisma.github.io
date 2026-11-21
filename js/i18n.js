@@ -56,10 +56,10 @@ window.MAPRISMA_I18N = {
 
     installHeading: "Download & Install from GitHub",
     installSubheading:
-      'Every Maprisma app lives in the <a href="https://github.com/maprisma" target="_blank" rel="noopener noreferrer" style="color: var(--accent-cyan); text-decoration: underline;">github.com/maprisma</a> organization. Pick a prebuilt release archive / AppImage, manage the whole suite via <strong>Maprisma Settings</strong>, or install any repository directly with its local installer script.',
-    step1Title: "Release Archive or AppImage",
+      'Every Maprisma app lives in the <a href="https://github.com/maprisma" target="_blank" rel="noopener noreferrer" style="color: var(--accent-cyan); text-decoration: underline;">github.com/maprisma</a> organization. Maprisma and the windowed apps (Settings, Theme, Launcher, Playground) come as a ready-to-run AppImage, manage the whole suite via <strong>Maprisma Settings</strong>, or install any repository directly with its local installer script.',
+    step1Title: "AppImage or Release Archive",
     step1Desc:
-      "Download the prebuilt <code>x86_64</code> archive (recommended for background local LLM integration) or portable AppImage from GitHub Releases and verify its SHA-256 checksum.",
+      "Maprisma, Maprisma Settings, Theme, Launcher and Playground have a portable <code>x86_64</code> AppImage and a release archive on each app's GitHub Releases page. Check the SHA-256 checksum, make the AppImage executable and start it. For Maprisma the archive is recommended (background local LLM service). Panel applets, tray icons and the shell are installed from source (step 3).",
     step2Title: "Manage Everything in Maprisma Settings",
     step2Desc:
       "Install <strong>Maprisma Settings</strong> once to install, update, and cleanly remove any Maprisma app — and place their panel applets or tray icons on COSMIC, KDE Plasma, and Hyprland.",
@@ -134,10 +134,10 @@ window.MAPRISMA_I18N = {
 
     installHeading: "Download & Installation von GitHub",
     installSubheading:
-      'Alle Maprisma-Apps sind unter <a href="https://github.com/maprisma" target="_blank" rel="noopener noreferrer" style="color: var(--accent-cyan); text-decoration: underline;">github.com/maprisma</a> verfügbar. Wähle ein fertiges Release-Archiv bzw. AppImage, verwalte alle Apps bequem über <strong>Maprisma Settings</strong> oder installiere einzelne Repositories direkt per Skript.',
-    step1Title: "Release-Archiv oder AppImage",
+      'Alle Maprisma-Apps sind unter <a href="https://github.com/maprisma" target="_blank" rel="noopener noreferrer" style="color: var(--accent-cyan); text-decoration: underline;">github.com/maprisma</a> verfügbar. Maprisma und die Fenster-Apps (Settings, Theme, Launcher, Playground) gibt es als startfertiges AppImage; verwalte alle Apps bequem über <strong>Maprisma Settings</strong> oder installiere einzelne Repositories direkt per Skript.',
+    step1Title: "AppImage oder Release-Archiv",
     step1Desc:
-      "Lade das fertige <code>x86_64</code>-Archiv (empfohlen für den lokalen LLM-Hintergrunddienst) oder das portable AppImage von GitHub Releases herunter und prüfe die SHA-256-Prüfsumme.",
+      "Maprisma, Maprisma Settings, Theme, Launcher und Playground gibt es als portables <code>x86_64</code>-AppImage und als Release-Archiv auf der GitHub-Releases-Seite der jeweiligen App. Prüfe die SHA-256-Prüfsumme, mach das AppImage ausführbar und starte es. Für Maprisma wird das Archiv empfohlen (lokaler LLM-Hintergrunddienst). Panel-Applets, Tray-Icons und die Shell werden aus dem Quellcode installiert (Schritt 3).",
     step2Title: "Alles verwalten mit Maprisma Settings",
     step2Desc:
       "Installiere einmalig <strong>Maprisma Settings</strong>, um beliebige Maprisma-Apps per Klick zu installieren, zu aktualisieren, sauber zu entfernen und Leisten-Icons auf COSMIC, KDE Plasma & Hyprland zu platzieren.",

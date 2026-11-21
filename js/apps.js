@@ -1,5 +1,5 @@
 /**
- * Maprisma App Catalog & Layout Config (Managed by Netcup Control · sha256:5719b41ad575)
+ * Maprisma App Catalog & Layout Config (Managed by Netcup Control · sha256:7610838ca987)
  * -----------------------------------------------------------------------------------
  * Source of truth: /mnt/Data/Projects/netcup-control/state/site-control.json
  * Regenerate via: netcup-control-core apply
@@ -105,7 +105,7 @@ window.MAPRISMA_APPS = [
   {
     "id": "theme",
     "name": "Maprisma Theme",
-    "version": "v0.5.0",
+    "version": "v0.6.2",
     "repoSlug": "maprisma/theme",
     "tagline": "Unified theme manager, custom palette builder & workspace presets",
     "tagline_de": "Theme-Manager, eigener Farbpaletten-Editor & Workspace-Layouts",
@@ -124,7 +124,7 @@ window.MAPRISMA_APPS = [
     "icon": "assets/icons/theme.svg",
     "github": "https://github.com/maprisma/theme",
     "releases": "https://github.com/maprisma/theme/releases",
-    "installCmd": "git clone https://github.com/maprisma/theme.git maprisma-theme\ncd maprisma-theme\n./tools/install-local",
+    "installCmd": "# AppImage from GitHub Releases (github.com/maprisma/theme/releases):\nsha256sum -c Maprisma-Theme-*-x86_64.AppImage.sha256\nchmod +x Maprisma-Theme-*-x86_64.AppImage\n./Maprisma-Theme-*-x86_64.AppImage\n# Or from source, with bar icon and desktop integration:\ngit clone https://github.com/maprisma/theme.git maprisma-theme\ncd maprisma-theme\n./tools/install-local",
     "highlights": [
       "Syncs desktop, terminal & editor colors (colors.toml)",
       "Generate themes from pictures or via Ask AI",
@@ -340,7 +340,7 @@ window.MAPRISMA_APPS = [
   {
     "id": "settings",
     "name": "Maprisma Settings",
-    "version": "v0.4.1",
+    "version": "v0.5.1",
     "repoSlug": "maprisma/settings",
     "tagline": "Install, update, remove Maprisma apps & place their bar icons",
     "tagline_de": "Maprisma-Apps installieren, aktualisieren, entfernen & Leisten-Icons platzieren",
@@ -360,7 +360,7 @@ window.MAPRISMA_APPS = [
     "icon": "assets/icons/settings.svg",
     "github": "https://github.com/maprisma/settings",
     "releases": "https://github.com/maprisma/settings/releases",
-    "installCmd": "git clone https://github.com/maprisma/settings.git maprisma-settings\ncd maprisma-settings\n./tools/install-local",
+    "installCmd": "# AppImage from GitHub Releases (github.com/maprisma/settings/releases):\nsha256sum -c Maprisma-Settings-*-x86_64.AppImage.sha256\nchmod +x Maprisma-Settings-*-x86_64.AppImage\n./Maprisma-Settings-*-x86_64.AppImage\n# Or from source, with bar icon and desktop integration:\ngit clone https://github.com/maprisma/settings.git maprisma-settings\ncd maprisma-settings\n./tools/install-local",
     "highlights": [
       "One-click install & atomic updates across 18 apps",
       "Panel & system tray icon placement",
@@ -382,7 +382,7 @@ window.MAPRISMA_APPS = [
   {
     "id": "launcher",
     "name": "Maprisma Launcher",
-    "version": "v0.2.0",
+    "version": "v0.4.1",
     "repoSlug": "maprisma/launcher",
     "tagline": "Theme-aware app launcher, AI package advisor, live shortcut map & dock",
     "tagline_de": "Theme-passender App-Starter, KI-Paketberater, Live-Tastenkarte & Dock",
@@ -401,7 +401,7 @@ window.MAPRISMA_APPS = [
     "icon": "assets/icons/launcher.svg",
     "github": "https://github.com/maprisma/launcher",
     "releases": "https://github.com/maprisma/launcher/releases",
-    "installCmd": "git clone https://github.com/maprisma/launcher.git maprisma-launcher\ncd maprisma-launcher\n./tools/install-local",
+    "installCmd": "# AppImage from GitHub Releases (github.com/maprisma/launcher/releases):\nsha256sum -c Maprisma-Launcher-*-x86_64.AppImage.sha256\nchmod +x Maprisma-Launcher-*-x86_64.AppImage\n./Maprisma-Launcher-*-x86_64.AppImage\n# Or from source, with bar icon and desktop integration:\ngit clone https://github.com/maprisma/launcher.git maprisma-launcher\ncd maprisma-launcher\n./tools/install-local",
     "highlights": [
       "App groups, window switcher & optional dock",
       "Live owner-colored global shortcut keyboard map",
@@ -443,7 +443,7 @@ window.MAPRISMA_APPS = [
   {
     "id": "playground",
     "name": "Maprisma Playground",
-    "version": "v0.2.3",
+    "version": "v0.3.1",
     "repoSlug": "maprisma/playground",
     "tagline": "Benchmark, pit head-to-head, and play chess with your AI agents & LLMs",
     "tagline_de": "KI-Agenten & lokale LLMs testen, blind vergleichen und im Schach fordern",
@@ -462,7 +462,7 @@ window.MAPRISMA_APPS = [
     "icon": "assets/icons/playground.svg",
     "github": "https://github.com/maprisma/playground",
     "releases": "https://github.com/maprisma/playground/releases",
-    "installCmd": "git clone https://github.com/maprisma/playground.git maprisma-playground\ncd maprisma-playground\n./tools/install-local",
+    "installCmd": "# AppImage from GitHub Releases (github.com/maprisma/playground/releases):\nsha256sum -c Maprisma-Playground-*-x86_64.AppImage.sha256\nchmod +x Maprisma-Playground-*-x86_64.AppImage\n./Maprisma-Playground-*-x86_64.AppImage\n# Or from source, with bar icon and desktop integration:\ngit clone https://github.com/maprisma/playground.git maprisma-playground\ncd maprisma-playground\n./tools/install-local",
     "highlights": [
       "Speed, token & cost benchmarks across agents",
       "Blind head-to-head judging & agent Chess",
